@@ -2,6 +2,8 @@ import argparse
 import json
 from pathlib import Path
 from .datasets.loader import list_datasets, load_dataset, export_dataset
+from .notebooks.exporter import list_notebooks, export_notebook
+
 """
 Bash cmd contrôle et synthase rédaction , forme d'écriture
 
@@ -20,6 +22,14 @@ def main():
     'commande '
     p_exp.add_argument("--out", required=True, help="Output path, e.g. ./medicine.csv")
 
+
+
+    sub.add_parser("notebooks", help="List available notebooks")
+    p_nbexp = sub.add_parser("export-notebook", help="Export a notebook to a path")
+    p_nbexp.add_argument("name", help="Notebook name")
+    p_nbexp.add_argument("--out", required=True, help="Output path, e.g. ./ml_cheatsheet.md")
+
+
     args = parser.parse_args()
 
     if args.cmd == "list":
@@ -30,3 +40,10 @@ def main():
     elif args.cmd == "export":
         out = export_dataset(args.name, Path(args.out))
         print(str(out))
+
+    elif args.cmd == "notebooks":
+        print(json.dumps(list_notebooks(), indent=2, ensure_ascii=False))
+    elif args.cmd == "export-notebook":
+        out = export_notebook(args.name, Path(args.out))
+        print(str(out))
+

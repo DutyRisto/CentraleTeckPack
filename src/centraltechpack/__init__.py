@@ -4,8 +4,10 @@ autrement dit , ca permet de choisir ce que notre package montre au monde exteri
 
 """
 from .datasets.loader import list_datasets,load_dataset,export_dataset
-
-__all__=['list_datasets','load_dataset','export_dataset']
-__version__='0.1.0'
-
+from .notebooks.exporter import list_notebooks, export_notebook
+__all__ = [
+    "list_datasets", "load_dataset", "export_dataset",
+    "list_notebooks", "export_notebook"
+]
+__version__ = "0.1.0"
 
