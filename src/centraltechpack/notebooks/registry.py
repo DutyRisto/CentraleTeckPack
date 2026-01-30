@@ -9,7 +9,7 @@ class NotebookInfo:
 NOTEBOOKS = {
     "ml_engineer_cheatsheet": NotebookInfo(
         name="ml_engineer_cheatsheet",
-        relpath="notebooks/content/ml_engineer_cheatsheet.md",
+        relpath="notebooks/content/ml_engineer_cheatsheet.ipynb",
         description="Expert DS/ML Engineer commands & workflow cheat sheet (Markdown)."
     )
 }
